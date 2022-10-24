@@ -1,21 +1,21 @@
 const Employee = require("../lib/Employee");
 
-describe("Employee", () =>{
+describe("Employee", () => {
 
-    describe("Validation", () =>{
+    describe("Validation", () => {
         it("Should return a valid employee who is in the team.", () => {
 
             //Set up 
             const employee = new Employee();
-            employee.name = "Alex De Souza";
-            employee.id = "2010";
-            employee.email = "alexdesouza@goal.com";
+            employee.name = "Ali Koc";
+            employee.id = "1967";
+            employee.email = "alikoc@fenerbahce.com";
             employee.role = "Employee";
 
             // Verify
-            expect(employee.name).toEqual("Alex De Souza");
-            expect(employee.id).toEqual("2010");
-            expect(employee.email).toEqual("alexdesouza@goal.com");
+            expect(employee.name).toEqual("Ali Koc");
+            expect(employee.id).toEqual("1967");
+            expect(employee.email).toEqual("alikoc@fenerbahce.com");
             expect(employee.role).toEqual("Employee");
 
         });
@@ -25,7 +25,7 @@ describe("Employee", () =>{
         it("Should return assigned name.", () => {
 
             // Set up
-            const name = "Alex De Souza";
+            const name = "Ali Koc";
             
             // Execute
             const employee = new Employee(name);
@@ -40,10 +40,10 @@ describe("Employee", () =>{
         it("Should return assigned ID number.", () => {
 
             // Set up
-            const id = "2010";
+            const id = "1967";
             
             // Execute
-            const employee = new Employee("Alex De Souza", id);
+            const employee = new Employee("Ali Koc", id);
 
             // Verify
             expect(employee.id).toEqual(id);
@@ -55,10 +55,10 @@ describe("Employee", () =>{
         it("Should return assigned email address.", () => {
 
             // Set up
-            const email = "alexdesouza@goal.com";
+            const email = "alikoc@fenerbahce.com";
             
             // Execute
-            const employee = new Employee("Alex De Souza", "2010", email);
+            const employee = new Employee("Ali Koc", "1967", email);
 
             // Verify
             expect(employee.email).toEqual(email);
@@ -73,7 +73,7 @@ describe("Employee", () =>{
             const role = "Employee";
             
             // Execute
-            const employee = new Employee("Alex De Souza", "2010", "alexdesouza@goal.com", role);
+            const employee = new Employee("Ali Koc", "1967", "alikoc@fenerbahce.com", role);
 
             // Verify
             expect(employee.role).toEqual(role);
