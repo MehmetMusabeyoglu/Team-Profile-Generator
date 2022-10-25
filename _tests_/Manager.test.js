@@ -65,8 +65,8 @@ describe("Manager", () => {
         });
     });
 
-    describe("getGithub function", () => {
-        it("Should return assigned GitHub user name.", () => {
+    describe("getOffice function", () => {
+        it("Should return assigned office number.", () => {
 
             // Set up
             const officeNumber = "FB07";
