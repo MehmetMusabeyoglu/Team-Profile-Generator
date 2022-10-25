@@ -3,21 +3,23 @@ const Engineer = require("../lib/Engineer");
 describe("Engineer", () => {
 
     describe("Validation", () => {
+        it("Should return a valid employee who is an Engineer.", () => {
+            
+            // Set up
+            const engineer = new Engineer("Alex De Souza", "1977", "alexdesouza@fenerbahce.com", "alex10", "Engineer");
+            // engineer.name = "Alex De Souza";
+            // engineer.id = "1977";
+            // engineer.email = "alexdesouza@fenerbahce.com";
+            // engineer.github = "alex10";
+            // engineer.role = "Engineer";
 
-        // Set up
-        const engineer = new Engineer("Alex De Souza", "1977", "alexdesouza@fenerbahce.com", "alex10", "Engineer");
-        // engineer.name = "Alex De Souza";
-        // engineer.id = "1977";
-        // engineer.email = "alexdesouza@fenerbahce.com";
-        // engineer.github = "alex10";
-        // engineer.role = "Engineer";
-
-        // Verify
-        expect(engineer.name).toEqual("Alex De Souza");
-        expect(engineer.id).toEqual("1977");
-        expect(engineer.email).toEqual("alexdesouza@fenerbahce.com");
-        expect(engineer.github).toEqual("alex10");
-        expect(engineer.role).toEqual("Engineer");
+            // Verify
+            expect(engineer.name).toEqual("Alex De Souza");
+            expect(engineer.id).toEqual("1977");
+            expect(engineer.email).toEqual("alexdesouza@fenerbahce.com");
+            expect(engineer.github).toEqual("alex10");
+            expect(engineer.role).toEqual("Engineer");
+        });
     });
 
     describe("getName function", () => {
@@ -85,7 +87,7 @@ describe("Engineer", () => {
 
             // Set up
             const role = "Employee";
-            
+
             // Execute
             const engineer = new Engineer("Alex De Souza", "1977", "alexdesouza@fenerbahce.com", "alex10", role);
 

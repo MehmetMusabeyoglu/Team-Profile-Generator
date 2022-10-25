@@ -3,21 +3,23 @@ const Intern = require("../lib/Intern");
 describe("Intern", () => {
 
     describe("Validation", () => {
+        it("Should return a valid employee who is an Engineer.", () => {
+            
+            // Set up
+            const intern = new Intern("Arda Guler", "2005", "ardaguler@fenerbahce.com", "FB College", "Intern");
+            // intern.name = "Arda Guler";
+            // intern.id = "2005";
+            // intern.email = "ardaguler@fenerbahce.com";
+            // intern.school = "FB College";
+            // intern.role = "Intern";
 
-        // Set up
-        const intern = new Intern("Arda Guler", "2005", "ardaguler@fenerbahce.com", "FB College", "Intern");
-        // intern.name = "Arda Guler";
-        // intern.id = "2005";
-        // intern.email = "ardaguler@fenerbahce.com";
-        // intern.school = "FB College";
-        // intern.role = "Intern";
-
-        // Verify
-        expect(intern.name).toEqual("Arda Guler");
-        expect(intern.id).toEqual("2005");
-        expect(intern.email).toEqual("ardaguler@fenerbahce.com");
-        expect(intern.school).toEqual("FB College");
-        expect(intern.role).toEqual("Intern");
+            // Verify
+            expect(intern.name).toEqual("Arda Guler");
+            expect(intern.id).toEqual("2005");
+            expect(intern.email).toEqual("ardaguler@fenerbahce.com");
+            expect(intern.school).toEqual("FB College");
+            expect(intern.role).toEqual("Intern");
+        });
     });
 
     describe("getName function", () => {
@@ -85,7 +87,7 @@ describe("Intern", () => {
 
             // Set up
             const role = "Intern";
-            
+
             // Execute
             const intern = new Intern("Arda Guler", "2005", "ardaguler@fenerbahce.com", "FB College", role);
 

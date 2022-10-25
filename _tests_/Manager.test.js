@@ -3,21 +3,23 @@ const Manager = require("../lib/Manager");
 describe("Manager", () => {
 
     describe("Validation", () => {
+        it("Should return a valid employee who is an Engineer.", () => {
+            
+            // Set up
+            const manager = new Manager("Jorge Jesus", "1954", "jorgejesus@fenerbahce.com", "FB07", "Manager");
+            // manager.name = "Jorge Jesus";
+            // manager.id = "1954";
+            // manager.email = "jorgejesus@fenerbahce.com";
+            // manager.officeNumber = "FB07";
+            // manager.role = "Manager";
 
-        // Set up
-        const manager = new Manager("Jorge Jesus", "1954", "jorgejesus@fenerbahce.com", "FB07", "Manager");
-        // manager.name = "Jorge Jesus";
-        // manager.id = "1954";
-        // manager.email = "jorgejesus@fenerbahce.com";
-        // manager.officeNumber = "FB07";
-        // manager.role = "Manager";
-
-        // Verify
-        expect(manager.name).toEqual("Jorge Jesus");
-        expect(manager.id).toEqual("1954");
-        expect(manager.email).toEqual("jorgejesus@fenerbahce.com");
-        expect(manager.officeNumber).toEqual("FB07");
-        expect(manager.role).toEqual("Manager");
+            // Verify
+            expect(manager.name).toEqual("Jorge Jesus");
+            expect(manager.id).toEqual("1954");
+            expect(manager.email).toEqual("jorgejesus@fenerbahce.com");
+            expect(manager.officeNumber).toEqual("FB07");
+            expect(manager.role).toEqual("Manager");
+        });
     });
 
     describe("getName function", () => {
@@ -85,7 +87,7 @@ describe("Manager", () => {
 
             // Set up
             const role = "Manager";
-            
+
             // Execute
             const manager = new Manager("Jorge Jesus", "1954", "jorgejesus@fenerbahce.com", "FB07", role);
 
