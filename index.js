@@ -11,13 +11,13 @@ const employeeType = ["Engineer", "Intern", "I don't want to add any more team m
 const nextEmployeeQuestion = [
     {
         type: "list",
-        name: "employeeChoice",
-        message: "Which type of team member would you like to add?", 
+        name: "employeeType",
+        message: "Which type of team member would you like to add?",
         choices: employeeType,
     }
 ];
 
-const manager = [
+const managerQuestions = [
     {
         type: "input",
         name: "managerName",
@@ -40,7 +40,7 @@ const manager = [
     }
 ];
 
-const engineer = [
+const engineerQuestions = [
     {
         type: "input",
         name: "engineerName",
@@ -63,7 +63,7 @@ const engineer = [
     }
 ];
 
-const intern = [
+const internQuestions = [
     {
         type: "input",
         name: "internName",
@@ -85,3 +85,60 @@ const intern = [
         message: "What is your intern's school?",
     }
 ];
+
+async function inquirerChain() {
+    await inquirer
+    .prompt(managerQuestions)
+    .then((userInputs) => {
+        console.log(userInputs);
+        ourTeam.push(new Manager(userInputs.managerName, userInputs.managerId, userInputs.managerEmail, userInputs.managerOffice, "Manager"));
+        console.log(ourTeam);
+    });
+
+    let inquirerEnd = false;
+    let chosenEmployeeType;
+
+    while(!inquirerEnd){
+        await inquirer
+        .prompt(nextEmployeeQuestion)
+        .then((userInputs) => {
+            console.log(userInputs);
+            chosenEmployeeType = userInputs.employeeType;
+        });
+
+
+        if (chosenEmployeeType === "Engineer") {
+            await inquirer
+                .prompt(engineerQuestions)
+                .then((userInputs) => {
+                    console.log(userInputs);
+                    ourTeam.push(new Engineer(userInputs.engineerName, userInputs.engineerId, userInputs.engineerEmail, userInputs.engineerGithub, "Engineer"));
+                    console.log(ourTeam);
+                });
+        }
+        else if (chosenEmployeeType === "Intern") {
+            await inquirer
+                .prompt(internQuestions)
+                .then((userInputs) => {
+                    console.log(userInputs);
+                    ourTeam.push(new Intern(userInputs.internName, userInputs.internId, userInputs.internEmail, userInputs.internSchool, "Intern"));
+                    console.log(ourTeam);
+                });
+        }
+        else{
+            inquirerEnd = true;
+            console.log(ourTeam);
+        }
+
+    }
+
+}
+
+function init() {
+
+    inquirerChain();
+
+}
+
+// Function call to initialize app
+init();
