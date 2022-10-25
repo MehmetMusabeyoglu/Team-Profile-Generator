@@ -5,12 +5,12 @@ describe("Engineer", () => {
     describe("Validation", () => {
 
         // Set up
-        const engineer = new Engineer();
-        engineer.name = "Alex De Souza";
-        engineer.id = "1977";
-        engineer.email = "alexdesouza@fenerbahce.com";
-        engineer.github = "alex10";
-        engineer.role = "Engineer";
+        const engineer = new Engineer("Alex De Souza", "1977", "alexdesouza@fenerbahce.com", "alex10", "Engineer");
+        // engineer.name = "Alex De Souza";
+        // engineer.id = "1977";
+        // engineer.email = "alexdesouza@fenerbahce.com";
+        // engineer.github = "alex10";
+        // engineer.role = "Engineer";
 
         // Verify
         expect(engineer.name).toEqual("Alex De Souza");

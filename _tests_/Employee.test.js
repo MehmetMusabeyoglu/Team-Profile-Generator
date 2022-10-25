@@ -6,11 +6,11 @@ describe("Employee", () => {
         it("Should return a valid employee who is in the team.", () => {
 
             //Set up 
-            const employee = new Employee();
-            employee.name = "Ali Koc";
-            employee.id = "1967";
-            employee.email = "alikoc@fenerbahce.com";
-            employee.role = "Employee";
+            const employee = new Employee("Ali Koc", "1967", "alikoc@fenerbahce.com", "Employee");
+            // employee.name = "Ali Koc";
+            // employee.id = "1967";
+            // employee.email = "alikoc@fenerbahce.com";
+            // employee.role = "Employee";
 
             // Verify
             expect(employee.name).toEqual("Ali Koc");

@@ -5,12 +5,12 @@ describe("Intern", () => {
     describe("Validation", () => {
 
         // Set up
-        const intern = new Intern();
-        intern.name = "Arda Guler";
-        intern.id = "2005";
-        intern.email = "ardaguler@fenerbahce.com";
-        intern.school = "FB College";
-        intern.role = "Intern";
+        const intern = new Intern("Arda Guler", "2005", "ardaguler@fenerbahce.com", "FB College", "Intern");
+        // intern.name = "Arda Guler";
+        // intern.id = "2005";
+        // intern.email = "ardaguler@fenerbahce.com";
+        // intern.school = "FB College";
+        // intern.role = "Intern";
 
         // Verify
         expect(intern.name).toEqual("Arda Guler");

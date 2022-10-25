@@ -5,12 +5,12 @@ describe("Manager", () => {
     describe("Validation", () => {
 
         // Set up
-        const manager = new Manager();
-        manager.name = "Jorge Jesus";
-        manager.id = "1954";
-        manager.email = "jorgejesus@fenerbahce.com";
-        manager.officeNumber = "FB07";
-        manager.role = "Manager";
+        const manager = new Manager("Jorge Jesus", "1954", "jorgejesus@fenerbahce.com", "FB07", "Manager");
+        // manager.name = "Jorge Jesus";
+        // manager.id = "1954";
+        // manager.email = "jorgejesus@fenerbahce.com";
+        // manager.officeNumber = "FB07";
+        // manager.role = "Manager";
 
         // Verify
         expect(manager.name).toEqual("Jorge Jesus");
