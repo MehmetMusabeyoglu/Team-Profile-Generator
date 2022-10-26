@@ -9,6 +9,6 @@ body {
     text-align: center;
     background-color: transparent;
     color: #f0ad4e;
-    border-radius: 0;
+    border-radius: 25px;
     border-bottom: 5px solid #f0ad4e;
 }

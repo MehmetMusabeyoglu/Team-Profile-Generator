@@ -140,42 +140,42 @@ function appendEmployee(employee) {
 
     if (employee.role === "Manager") {
         employeeCard = `
-        <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
-            <div class="card-body bg-primary text-light">
+        <div class="card text-flex bg-primary text-light border-warning col-lg-6 col-md-6 col-12" style="width: 18rem;border-radius: 25px;">
+            <div class="card-body">
                 <h3 class="card-title text-warning d-flex flex-start"> ${employee.name} </h3>
                 <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                         alt="Manager icon"></h4>
-                <p class="card-text d-flex flex-row"><b>ID:</b>  ${employee.id} </p>
-                <p class="card-text d-flex flex-row"><b> Email Address:</b>  ${employee.email} </p>
-                <p class="card-text d-flex flex-row"><b>Office Number:</b>  ${employee.officeNumber} </p>
+                <p class="card-text d-flex flex-row"><b>ID: </b>  ${employee.id} </p>
+                <p class="card-text d-flex flex-row"><b> Email Address: </b>  ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b>Office Number: </b>  ${employee.officeNumber} </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
         </div>
             `
     } else if (employee.role === "Engineer") {
         employeeCard = `
-        <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
-            <div class="card-body bg-primary text-light">
+        <div class="card text-flex bg-primary text-light border-warning col-lg-6 col-md-6 col-12" style="width: 18rem;border-radius: 25px;">
+            <div class="card-body">
                 <h3 class="card-title text-warning d-flex flex-start"> ${employee.name} </h3>
                 <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                     alt="Engineer icon"></h4>
-                <p class="card-text d-flex flex-row"><b>ID:</b> ${employee.id} </p>
-                <p class="card-text d-flex flex-row"><b>Email Address:</b> ${employee.email} </p>
-                <p class="card-text d-flex flex-row"><b>GitHub Adress:</b> ${employee.github} </p>
+                <p class="card-text d-flex flex-row"><b>ID: </b> ${employee.id} </p>
+                <p class="card-text d-flex flex-row"><b>Email Address: </b> ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b>GitHub Adress: </b> ${employee.github} </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
         </div>
         `
     } else if(employee.role === "Intern"){
         employeeCard = `
-        <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
-            <div class="card-body bg-primary text-light">
+        <div class="card text-flex bg-primary text-light border-warning col-lg-6 col-md-6 col-12" style="width: 18rem;border-radius: 25px;">
+            <div class="card-body">
                 <h3 class="card-title text-warning d-flex flex-start"> ${employee.name} </h3>
                 <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                     alt="Intern icon"></h4>
-                <p class="card-text d-flex flex-row"><b>ID:</b> ${employee.id} </p>
+                <p class="card-text d-flex flex-row"><b>ID: </b> ${employee.id} </p>
                 <p class="card-text d-flex flex-row"><b>Email Address: </b> ${employee.email} </p>
-                <p class="card-text d-flex flex-row"><b>School:</b> ${employee.school} </p>
+                <p class="card-text d-flex flex-row"><b>School: </b> ${employee.school} </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
          </div>
@@ -224,9 +224,12 @@ async function generateHtml(){
     
     </html>
     `
-    fs.writeFile("dist/index.html", html, (err) =>
-        err ? console.log(err) : console.log('Successfully created new index.html')
+
+    fs.readFile("src/index.html", "utf-8", (err) =>
+    err ? console.log(err) : console.log('Successfully readed new index.html')
     );
+
+ 
 
 }
 
