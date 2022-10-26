@@ -88,23 +88,23 @@ const internQuestions = [
 
 async function inquirerChain() {
     await inquirer
-    .prompt(managerQuestions)
-    .then((userInputs) => {
-        console.log(userInputs);
-        ourTeam.push(new Manager(userInputs.managerName, userInputs.managerId, userInputs.managerEmail, userInputs.managerOffice, "Manager"));
-        console.log(ourTeam);
-    });
+        .prompt(managerQuestions)
+        .then((userInputs) => {
+            console.log(userInputs);
+            ourTeam.push(new Manager(userInputs.managerName, userInputs.managerId, userInputs.managerEmail, userInputs.managerOffice, "Manager"));
+            console.log(ourTeam);
+        });
 
     let inquirerEnd = false;
     let chosenEmployeeType;
 
-    while(!inquirerEnd){
+    while (!inquirerEnd) {
         await inquirer
-        .prompt(nextEmployeeQuestion)
-        .then((userInputs) => {
-            console.log(userInputs);
-            chosenEmployeeType = userInputs.employeeType;
-        });
+            .prompt(nextEmployeeQuestion)
+            .then((userInputs) => {
+                console.log(userInputs);
+                chosenEmployeeType = userInputs.employeeType;
+            });
 
 
         if (chosenEmployeeType === "Engineer") {
@@ -125,7 +125,7 @@ async function inquirerChain() {
                     console.log(ourTeam);
                 });
         }
-        else{
+        else {
             inquirerEnd = true;
             console.log(ourTeam);
         }
@@ -134,10 +134,108 @@ async function inquirerChain() {
 
 }
 
-function init() {
+function appendEmployee(employee) {
 
-    inquirerChain();
+    let employeeCard = "";
 
+    if (employee.role === "Manager") {
+        employeeCard = `
+        <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
+            <div class="card-body bg-primary text-light">
+                <h3 class="card-title text-warning d-flex flex-start">Name</h3>
+                <h4 class="card-title text-warning d-flex flex-start">Manager <img src="../images/Manager.jpg" width="30" height="30"
+                        alt="Manager icon"></h4>
+                <p class="card-text d-flex flex-row"><b>ID:</b> </p>
+                <p class="card-text d-flex flex-row"><b>Email Address:</b> </p>
+                <p class="card-text d-flex flex-row"><b>Office Number:</b> </p>
+                <a href="mailto: mehmetmusabeyoglu@gmail.com" class="btn btn-warning d-flex justify-content-center">Contact me</a>
+            </div>
+        </div>
+            `
+    } else if (employee.role === "Engineer") {
+        employeeCard = `
+        <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
+            <div class="card-body bg-primary text-light">
+                <h3 class="card-title text-warning d-flex flex-start">Name</h3>
+                <h4 class="card-title text-warning d-flex flex-start">Engineer <img src="../images/Engineer.jpg" width="30" height="30"
+                    alt="Engineer icon"></h4>
+                <p class="card-text d-flex flex-row"><b>ID:</b> </p>
+                <p class="card-text d-flex flex-row"><b>Email Address:</b> </p>
+                <p class="card-text d-flex flex-row"><b>GitHub Adress:</b> </p>
+                <a href="mailto: mehmetmusabeyoglu@gmail.com" class="btn btn-warning d-flex justify-content-center">Contact me</a>
+            </div>
+        </div>
+        `
+    } else if(employee.role === "Intern"){
+        employeeCard = `
+        <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
+            <div class="card-body bg-primary text-light">
+                <h3 class="card-title text-warning d-flex flex-start">Name</h3>
+                <h4 class="card-title text-warning d-flex flex-start">Intern <img src="../images/Intern.jpg" width="30" height="30"
+                    alt="Intern icon"></h4>
+                <p class="card-text d-flex flex-row"><b>ID:</b> 2005 </p>
+                <p class="card-text d-flex flex-row"><b>Email Address: </b> alexdesouza@fenerbahce.com</p>
+                <p class="card-text d-flex flex-row"><b>School:</b> FB College</p>
+                <a href="mailto: mehmetmusabeyoglu@gmail.com" class="btn btn-warning d-flex justify-content-center">Contact me</a>
+            </div>
+         </div>
+        `
+    }
+
+    return employeeCard;
+}
+
+async function generateHtml(){
+
+    let html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+        <link rel="stylesheet" href="../dist/style.css" />
+        <title>Super Team</title>
+    </head>
+    
+    <body class="w-auto p-3">
+        <header class="jumbotron bg-primary text-light">
+            <h1 class="display-3 text-warning">Our Team Members</h1>
+        </header>
+    
+        <div class="container d-flex flex-wrap rounded-lg p-3">
+    `
+
+    for(let i=0; i<ourTeam.length; i++){
+
+        html = html + appendEmployee(ourTeam[i]);
+    }
+
+    html = html + `
+    </div>
+
+    </body>
+    
+    <script src="../index.js"></script>
+    
+    </html>
+    `
+    fs.writeFile("dist/index.html", html, (err) =>
+        err ? console.log(err) : console.log('Successfully created new index.html')
+    );
+
+}
+
+async function init() {
+
+    await inquirerChain();
+    await generateHtml();
+
+    
 }
 
 // Function call to initialize app
