@@ -161,7 +161,7 @@ function appendEmployee(employee) {
                     alt="Engineer icon"></h4>
                 <p class="card-text d-flex flex-row"><b>ID: </b> ${employee.id} </p>
                 <p class="card-text d-flex flex-row"><b>Email Address: </b> ${employee.email} </p>
-                <p class="card-text d-flex flex-row"><b>GitHub Adress: </b> ${employee.github} </p>
+                <p class="card-text d-flex flex-row"><b>GitHub: </b> ${employee.github} </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
         </div>
@@ -224,12 +224,9 @@ async function generateHtml(){
     
     </html>
     `
-
-    fs.readFile("src/index.html", "utf-8", (err) =>
-    err ? console.log(err) : console.log('Successfully readed new index.html')
-    );
-
- 
+    fs.writeFile("dist/index.html", html, (err) =>
+    err ? console.log(err) : console.log('Successfully created new index.html')
+);
 
 }
 
@@ -237,7 +234,6 @@ async function init() {
 
     await inquirerChain();
     await generateHtml();
-
     
 }
 
