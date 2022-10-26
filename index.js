@@ -8,6 +8,7 @@ const Intern = require("./lib/Intern");
 const ourTeam = [];
 const employeeType = ["Engineer", "Intern", "I don't want to add any more team members"];
 
+// Employee type selection
 const nextEmployeeQuestion = [
     {
         type: "list",
@@ -17,6 +18,7 @@ const nextEmployeeQuestion = [
     }
 ];
 
+// Manager questions
 const managerQuestions = [
     {
         type: "input",
@@ -40,6 +42,7 @@ const managerQuestions = [
     }
 ];
 
+// Engineer questions
 const engineerQuestions = [
     {
         type: "input",
@@ -63,6 +66,7 @@ const engineerQuestions = [
     }
 ];
 
+// Inter questions
 const internQuestions = [
     {
         type: "input",
@@ -86,6 +90,7 @@ const internQuestions = [
     }
 ];
 
+// Inquirer function for promting questions
 async function inquirerChain() {
     await inquirer
         .prompt(managerQuestions)
@@ -134,6 +139,7 @@ async function inquirerChain() {
 
 }
 
+// Function for adding employee based on user inputs
 function appendEmployee(employee) {
 
     let employeeCard = "";
@@ -146,7 +152,7 @@ function appendEmployee(employee) {
                 <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                         alt="Manager icon"></h4>
                 <p class="card-text d-flex flex-row"><b>ID: </b>  ${employee.id} </p>
-                <p class="card-text d-flex flex-row"><b> Email Address: </b>  ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b> Email Address: </b> <a class="text-light" href= "mailto:" > ${employee.email} </a></p>
                 <p class="card-text d-flex flex-row"><b>Office Number: </b>  ${employee.officeNumber} </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
@@ -160,8 +166,8 @@ function appendEmployee(employee) {
                 <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                     alt="Engineer icon"></h4>
                 <p class="card-text d-flex flex-row"><b>ID: </b> ${employee.id} </p>
-                <p class="card-text d-flex flex-row"><b>Email Address: </b> ${employee.email} </p>
-                <p class="card-text d-flex flex-row"><b>GitHub: </b> ${employee.github} </p>
+                <p class="card-text d-flex flex-row"><b>Email Address: </b> <a class="text-light" href= "mailto:" > ${employee.email} </a></p>
+                <p class="card-text d-flex flex-row"><b>GitHub: </b> <a class="text-light" href="https://github.com/${employee.github}"> ${employee.github}</a> </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
         </div>
@@ -174,7 +180,7 @@ function appendEmployee(employee) {
                 <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                     alt="Intern icon"></h4>
                 <p class="card-text d-flex flex-row"><b>ID: </b> ${employee.id} </p>
-                <p class="card-text d-flex flex-row"><b>Email Address: </b> ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b>Email Address: </b> <a class="text-light" href= "mailto:" > ${employee.email} </a></p>
                 <p class="card-text d-flex flex-row"><b>School: </b> ${employee.school} </p>
                 <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
@@ -185,6 +191,7 @@ function appendEmployee(employee) {
     return employeeCard;
 }
 
+// Function for generating html.index
 async function generateHtml(){
 
     let html = `
@@ -230,6 +237,7 @@ async function generateHtml(){
 
 }
 
+// Init function to start inquirer
 async function init() {
 
     await inquirerChain();
