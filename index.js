@@ -142,13 +142,13 @@ function appendEmployee(employee) {
         employeeCard = `
         <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
             <div class="card-body bg-primary text-light">
-                <h3 class="card-title text-warning d-flex flex-start">Name</h3>
-                <h4 class="card-title text-warning d-flex flex-start">Manager <img src="../images/Manager.jpg" width="30" height="30"
+                <h3 class="card-title text-warning d-flex flex-start"> ${employee.name} </h3>
+                <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                         alt="Manager icon"></h4>
-                <p class="card-text d-flex flex-row"><b>ID:</b> </p>
-                <p class="card-text d-flex flex-row"><b>Email Address:</b> </p>
-                <p class="card-text d-flex flex-row"><b>Office Number:</b> </p>
-                <a href="mailto: mehmetmusabeyoglu@gmail.com" class="btn btn-warning d-flex justify-content-center">Contact me</a>
+                <p class="card-text d-flex flex-row"><b>ID:</b>  ${employee.id} </p>
+                <p class="card-text d-flex flex-row"><b> Email Address:</b>  ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b>Office Number:</b>  ${employee.officeNumber} </p>
+                <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
         </div>
             `
@@ -156,13 +156,13 @@ function appendEmployee(employee) {
         employeeCard = `
         <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
             <div class="card-body bg-primary text-light">
-                <h3 class="card-title text-warning d-flex flex-start">Name</h3>
-                <h4 class="card-title text-warning d-flex flex-start">Engineer <img src="../images/Engineer.jpg" width="30" height="30"
+                <h3 class="card-title text-warning d-flex flex-start"> ${employee.name} </h3>
+                <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                     alt="Engineer icon"></h4>
-                <p class="card-text d-flex flex-row"><b>ID:</b> </p>
-                <p class="card-text d-flex flex-row"><b>Email Address:</b> </p>
-                <p class="card-text d-flex flex-row"><b>GitHub Adress:</b> </p>
-                <a href="mailto: mehmetmusabeyoglu@gmail.com" class="btn btn-warning d-flex justify-content-center">Contact me</a>
+                <p class="card-text d-flex flex-row"><b>ID:</b> ${employee.id} </p>
+                <p class="card-text d-flex flex-row"><b>Email Address:</b> ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b>GitHub Adress:</b> ${employee.github} </p>
+                <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
         </div>
         `
@@ -170,13 +170,13 @@ function appendEmployee(employee) {
         employeeCard = `
         <div class="card text-center border-warning col-4 col-md-6" style="width: 18rem;background-color: burlywood;">
             <div class="card-body bg-primary text-light">
-                <h3 class="card-title text-warning d-flex flex-start">Name</h3>
-                <h4 class="card-title text-warning d-flex flex-start">Intern <img src="../images/Intern.jpg" width="30" height="30"
+                <h3 class="card-title text-warning d-flex flex-start"> ${employee.name} </h3>
+                <h4 class="card-title text-warning d-flex flex-start"> ${employee.role} <img src="../images/${employee.role}.jpg" width="30" height="30"
                     alt="Intern icon"></h4>
-                <p class="card-text d-flex flex-row"><b>ID:</b> 2005 </p>
-                <p class="card-text d-flex flex-row"><b>Email Address: </b> alexdesouza@fenerbahce.com</p>
-                <p class="card-text d-flex flex-row"><b>School:</b> FB College</p>
-                <a href="mailto: mehmetmusabeyoglu@gmail.com" class="btn btn-warning d-flex justify-content-center">Contact me</a>
+                <p class="card-text d-flex flex-row"><b>ID:</b> ${employee.id} </p>
+                <p class="card-text d-flex flex-row"><b>Email Address: </b> ${employee.email} </p>
+                <p class="card-text d-flex flex-row"><b>School:</b> ${employee.school} </p>
+                <a href="mailto:${employee.email}" class="btn btn-warning d-flex justify-content-center">Contact me</a>
             </div>
          </div>
         `
