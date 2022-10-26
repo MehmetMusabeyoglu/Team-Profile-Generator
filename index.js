@@ -90,9 +90,9 @@ async function inquirerChain() {
     await inquirer
         .prompt(managerQuestions)
         .then((userInputs) => {
-            console.log(userInputs);
+            // console.log(userInputs);
             ourTeam.push(new Manager(userInputs.managerName, userInputs.managerId, userInputs.managerEmail, userInputs.managerOffice, "Manager"));
-            console.log(ourTeam);
+            // console.log(ourTeam);
         });
 
     let inquirerEnd = false;
@@ -102,7 +102,7 @@ async function inquirerChain() {
         await inquirer
             .prompt(nextEmployeeQuestion)
             .then((userInputs) => {
-                console.log(userInputs);
+                // console.log(userInputs);
                 chosenEmployeeType = userInputs.employeeType;
             });
 
@@ -111,18 +111,18 @@ async function inquirerChain() {
             await inquirer
                 .prompt(engineerQuestions)
                 .then((userInputs) => {
-                    console.log(userInputs);
+                    // console.log(userInputs);
                     ourTeam.push(new Engineer(userInputs.engineerName, userInputs.engineerId, userInputs.engineerEmail, userInputs.engineerGithub, "Engineer"));
-                    console.log(ourTeam);
+                    // console.log(ourTeam);
                 });
         }
         else if (chosenEmployeeType === "Intern") {
             await inquirer
                 .prompt(internQuestions)
                 .then((userInputs) => {
-                    console.log(userInputs);
+                    // console.log(userInputs);
                     ourTeam.push(new Intern(userInputs.internName, userInputs.internId, userInputs.internEmail, userInputs.internSchool, "Intern"));
-                    console.log(ourTeam);
+                    // console.log(ourTeam);
                 });
         }
         else {
